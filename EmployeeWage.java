@@ -8,8 +8,8 @@ public class EmployeeWage {
 	private final int empRatePerHour;
 	private final int numOfWorkingDays;
 	private final int maxHoursPerMonth;
+	private int totalEmpWage;
 
-	//Constructor
 	public EmployeeWage(String company, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth) {
 		this.company = company;
 		this.empRatePerHour = empRatePerHour;
@@ -17,19 +17,14 @@ public class EmployeeWage {
 		this.maxHoursPerMonth = maxHoursPerMonth;
 	}
 	
-	public static void main(String[] args) {
-		
-		//Creating object of Dmart
-		EmployeeWage dMart = new EmployeeWage("DMart", 20, 2, 10);
-		
+	public void computeEmpWage() {
 		//Variables
 		int empHrs = 0;
 		int totalEmpHrs = 0;
 		int totalWorkingDays = 0;
-		
 		//Computation
-		while (totalEmpHrs <= dMart.maxHoursPerMonth &&
-				totalWorkingDays < dMart.numOfWorkingDays) {			
+		while (totalEmpHrs <= maxHoursPerMonth &&
+				totalWorkingDays < numOfWorkingDays) {			
 		totalWorkingDays++;
 		int empCheck = (int) Math.floor(Math.random() * 10) % 3;
 		switch (empCheck) {
@@ -44,9 +39,21 @@ public class EmployeeWage {
 		}
 		totalEmpHrs += empHrs;
 		System.out.println("Day: " + totalWorkingDays + "Emp Hr: " +empHrs);
+	}	
+	totalEmpWage = totalEmpHrs * empRatePerHour;		
+}
+	@Override
+	public String toString() {
+		return "Total Emp Wage for Company: " +company+ " is: " +totalEmpWage;
 	}
-	int totalEmpWage = totalEmpHrs * dMart.empRatePerHour;
-	System.out.println("Total Emp Wage: " + totalEmpWage);
+	
+	public static void main(String[] args) {
+		EmployeeWage dMart = new EmployeeWage("DMart", 20, 2, 10);
+		EmployeeWage reliance = new EmployeeWage("Reliance", 10, 4, 20);
+		dMart.computeEmpWage();
+		System.out.println(dMart);
+		reliance.computeEmpWage();
+		System.out.println(reliance);
 		
   }
 }
