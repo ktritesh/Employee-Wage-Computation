@@ -84,7 +84,7 @@ public class EmployeeWage implements IComputeEmpWage{
 					empHrs = 0;
 			}
 			totalEmpHrs += empHrs;
-			System.out.println("Day# " +totalWorkingDays+ "Emp Hr: " +empHrs);
+			System.out.println("Day# " +totalWorkingDays+ "Emp Hr:: " +empHrs);
 		}
 		return totalEmpHrs*companyEmpWage.empRatePerHour;
 	}
@@ -94,6 +94,6 @@ public class EmployeeWage implements IComputeEmpWage{
 		empWage.addCompanyEmpWage("DMart", 20, 2, 10);
 		empWage.addCompanyEmpWage("Reliance", 10, 4, 20);
 		empWage.computeEmpWage();
-		System.out.println("Total Wage For Dmart Company: " +empWage.getTotalWage("DMart"));
+		System.out.println("Total Wage For Dmart Company:: " +empWage.getTotalWage("DMart"));
 	}
 }
